@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin Zahlung</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#111;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.box{
+    background:#222;
+    width:500px;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h1{
+    color:gold;
+    margin-bottom:20px;
+}
+
+.price{
+    color:#00ff99;
+    font-size:40px;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.wallet{
+    background:black;
+    padding:15px;
+    border-radius:10px;
+    color:#00ff99;
+    word-break:break-all;
+    margin-top:20px;
+    font-size:18px;
+}
+
+img{
+    width:220px;
+    margin-top:20px;
+    border-radius:10px;
+}
+
+.info{
+    margin-top:20px;
+    color:gray;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Bitcoin Zahlung</h1>
+
+<div class="price" id="btcpreis">
+0€
+</div>
+
+<p>
+Bitte sende den Betrag an diese Bitcoin-Adresse:
+</p>
+
+<div class="wallet">
+1H6UWWmQLpCAkXVRBrqSjZmqfodFg8zDBo
+</div>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=1H6UWWmQLpCAkXVRBrqSjZmqfodFg8zDBo">
+
+<p class="info">
+Nach Zahlungseingang werden die Tickets 48 Stunden Vor Spiel beginn  per Email verschickt.
+</p>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const preis = params.get("price");
+
+document.getElementById("btcpreis").innerHTML =
+preis + "€";
+
+</script>
+
+</body>
+</html>
